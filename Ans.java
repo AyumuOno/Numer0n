@@ -3,9 +3,9 @@ import java.util.*;
 public class Ans {
 
   // field
-  int[] ans_num = new int[3];
+  ArrayList<Integer> ans_num = new ArrayList<Integer>();
   ArrayList<Integer> ans_list = new ArrayList<Integer>();
-
+  final int ANS_LENGTH = 3;
 
   // instance
   Ans(){
@@ -16,8 +16,8 @@ public class Ans {
     Collections.shuffle(ans_list);
 
     // -- decide ans number --
-    for (int j = 0; j < ans_num.length; j++) {
-      ans_num[j] = ans_list.get(j);
+    for (int j = 0; j < ANS_LENGTH; j++) {
+      ans_num.add(ans_list.get(j));
     }
   }
 

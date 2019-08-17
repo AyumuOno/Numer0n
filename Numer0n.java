@@ -5,31 +5,57 @@ public class Numer0n {
   public static void main(String[] args) {
     // Create the instance "ans"
     Ans ans = new Ans();
+    Scanner scanner = new Scanner(System.in);
 
+    // field
+    // User answer
+    ArrayList<Integer> call = new ArrayList<Integer>(Arrays.asList(0,0,0));
+    int insert_num_to_call = 0;
     // -- Check to ans_num length --
     // System.out.println(ans.ans_num.length);
 
-    // -- There is for debug
-    // -- from  here
-    System.out.println("> Answer number is ");
+    // ** There is for debug **
+    System.out.println("> Answer number is " + ans.ans_num);
 
-    for (int i = 0; i < ans.ans_num.length; i++) System.out.print(ans.ans_num[i] + " ");
-    System.out.println();
 
-    // to here
-
-    Scanner scanner = new Scanner(System.in);
-     // 入力を促すメッセージ
+    // 入力を促すメッセージ
     System.out.print("入力してください > ");
+    System.out.println("Your call is " + call);
 
-    //入力された内容をインスタンスから取得
-    String input_num = scanner.nextLine();
+    while(true){
 
-    //入力された内容を画面に表示
-    System.out.println(input_num + "が入力されました");
+      String input_num_str = scanner.nextLine();
+      isNum(input_num_str);
+      int input_num = Integer.parseInt(input_num_str);
 
-    // Scannerクラスのインスタンスをクローズ
-    scanner.close();
+      //入力された内容を画面に表示
+      System.out.println(input_num + "が入力されました");
+
+      if (Arrays.asList(call).contains(input_num) || input_num <= 0 || 10 <= input_num){
+        // Entered a duplicate number
+        System.out.println("1~9の数字を重複なく入力してください");
+      }else{
+        call.set(insert_num_to_call, input_num);
+        insert_num_to_call++;
+      }
+      System.out.println("Your call is" + call);
+
+      if(3 <= insert_num_to_call) break;
+
+    }
+
+
+    // // Scannerクラスのインスタンスをクローズ
+    // scanner.close();
   }
 
+  static boolean isNum(String number) {
+      try {
+          Integer.parseInt(number);
+          return true;
+      } catch (NumberFormatException e) {
+          System.out.println("一桁の数字を入力してください");
+          return false;
+      }
+  }
 }
