@@ -21,11 +21,6 @@ public class Ans {
         }
     }
 
-    // method
 
-    //
-    // public int collation(){
-    //
-    // }
 
 }
