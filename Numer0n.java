@@ -1,6 +1,9 @@
 import java.util.*;
 
 public class Numer0n {
+    // global
+    static Integer input_num = 0;
+    static ArrayList<Integer> call = new ArrayList<>(Arrays.asList(0,0,0));
 
     public static void main(String[] args) {
         // Create the instance "ans"
@@ -9,8 +12,9 @@ public class Numer0n {
 
         // field
         // User answer
-        ArrayList<Integer> call = new ArrayList<Integer>(Arrays.asList(0,0,0));
+
         int insert_num_to_call = 0;
+
         // -- Check to ans_num length --
         // System.out.println(ans.ans_num.length);
 
@@ -26,13 +30,13 @@ public class Numer0n {
 
             String input_num_str = scanner.nextLine();
             if(isNum(input_num_str)){
-                int input_num = Integer.parseInt(input_num_str);
-
                 //入力された内容を画面に表示
                 System.out.println(input_num + "が入力されました");
+
                 // 全部falseが帰ってきてる
+                // --> contains(object): Can conpare different types.(int:String)
                 System.out.println(">> " + Arrays.asList(call).contains(input_num));
-                if (Arrays.asList(call).contains(input_num) || input_num <= 0 || 10 <= input_num){
+                if (isOnly(input_num) || input_num <= 0 || 10 <= input_num){
                     // Entered a duplicate number
                     System.out.println("1~9の数字を重複なく入力してください");
                 }else{
@@ -53,11 +57,20 @@ public class Numer0n {
 
     static boolean isNum(String number) {
         try {
-            Integer.parseInt(number);
+            input_num = Integer.parseInt(number);
             return true;
         } catch (NumberFormatException e) {
             System.out.println("一桁の数字を入力してください");
             return false;
         }
+    }
+
+    static boolean isOnly(int num){
+         if (call.contains(num)) {
+             System.out.println("被らずに数字を入力してください");
+             return true;
+         } else {
+             return false;
+         }
     }
 }
