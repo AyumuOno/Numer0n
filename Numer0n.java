@@ -21,12 +21,12 @@ public class Numer0n {
         // System.out.println(ans.ans_num.length);
 
         // ** There is for debug **
-        System.out.println("> Answer number is " + ans.ans_num);
+        // System.out.println("> Answer number is " + ans.ans_num);
 
         System.out.print("入力してください > ");
         System.out.println("Your call is " + call);
-        while (turn < 4 ){
-            System.out.println(turn + "/3 の回答です。");
+        while (turn < 11 ){
+            System.out.println(turn + "/10 の回答です。");
             int insert_num_to_call = 0;
             eat = 0;
             bite = 0;
@@ -88,8 +88,6 @@ public class Numer0n {
             return false;
         }
     }
-
-
 
     static void isCollation(Ans ans){
 
